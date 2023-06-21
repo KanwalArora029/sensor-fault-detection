@@ -2,7 +2,9 @@ import pymongo
 from sensor.constant.database import DATABASE_NAME
 from sensor.constant.env_variable import MONGODB_URL_KEY
 import certifi
+import sys
 import os
+from sensor.exception import CustomException
 ca = certifi.where()
 
 
@@ -22,4 +24,4 @@ class MongoDBClient:
             self.database = self.client[database_name]
             self.database_name = database_name
         except Exception as e:
-            raise e
+            raise CustomException(e, sys)

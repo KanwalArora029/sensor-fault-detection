@@ -8,6 +8,7 @@ mypy-boto3-s3==1.24.76
 matplotlib
 pip-chill==1.0.1
 pymongo==4.2.0
+pymongo[srv]==4.2.0
 python-dotenv==0.21.0
 seaborn
 types-s3transfer==0.6.0.post4

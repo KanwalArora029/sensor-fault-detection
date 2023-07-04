@@ -7,7 +7,7 @@ from sensor.pipeline.training_pipeline import TrainPipeline
 import os
 from sensor.utils.main_utils import read_yaml_file
 from sensor.constant.training_pipeline import SAVED_MODEL_DIR
-from fastapi import FastAPI, File, UploadFile
+from fastapi import FastAPI, File, UploadFile,Request
 from sensor.constant.application import APP_HOST, APP_PORT
 from starlette.responses import RedirectResponse
 from uvicorn import run as app_run
@@ -77,17 +77,6 @@ async def predict_route(request:Request,file: UploadFile = File(...)):
     except Exception as e:
         raise Response(f"Error Occured! {e}")
 
-# def main():
-#     try:
-#         set_env_variable(env_file_path)
-#         training_pipeline = TrainPipeline()
-#         training_pipeline.run_pipeline()
-#     except Exception as e:
-#         print(e)
-#         logging.exception(e)
-
 
 if __name__=="__main__":
-    #main()
-    # set_env_variable(env_file_path)
     app_run(app, host=APP_HOST, port=APP_PORT)
